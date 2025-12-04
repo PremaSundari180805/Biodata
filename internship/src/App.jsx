@@ -31,12 +31,9 @@ function App() {
   const renderContent = () => {
     const Component = components[activeTab]
     if (Component) {
-      if (activeTab === 'Modification') {
-        return <Component personalInfo={personalInfo}  />
-      
-      } else {
+    
         return <Component personalInfo={personalInfo} />
-      }
+      
     }
 
     return null

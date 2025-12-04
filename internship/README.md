@@ -1,4 +1,4 @@
-Here is a simple and clean version:
+
 
 I completed the following tasks:
 
@@ -11,3 +11,4 @@ Additional changes:
 
 1. Cleared only the form data in the Modification tab.
 2. Changed the picture shape from square to oval.
+

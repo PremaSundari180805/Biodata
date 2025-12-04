@@ -1,31 +1,24 @@
-import { useState } from 'react'
 import './App.css'
 
-function Modification({ personalInfo }) {
-  const [formData, setFormData] = useState(personalInfo)
-
+function Modification({ personalInfo, onInputChange, clearData }) {
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
+    // call parent updater so App's state updates and flows to other tabs
+    if (typeof onInputChange === 'function') onInputChange(field, value)
   }
 
   const handleClear = () => {
-    setFormData({
-      name: '',
-      age: '',
-      dept: '',
-      schoolName: '',
-      collegeDegree: ''
-    })
+    if (typeof clearData === 'function') clearData()
   }
+
   return (
     <div>
       <h2>Modification</h2>
-      <form className="edit-form">
+      <form className="edit-form" onSubmit={(e) => e.preventDefault()}>
         <label>
           Name:
           <input
             type="text"
-            value={formData.name}
+            value={personalInfo.name}
             onChange={(e) => handleInputChange('name', e.target.value)}
           />
         </label>
@@ -33,7 +26,7 @@ function Modification({ personalInfo }) {
           Age:
           <input
             type="text"
-            value={formData.age}
+            value={personalInfo.age}
             onChange={(e) => handleInputChange('age', e.target.value)}
           />
         </label>
@@ -41,7 +34,7 @@ function Modification({ personalInfo }) {
           Dept:
           <input
             type="text"
-            value={formData.dept}
+            value={personalInfo.dept}
             onChange={(e) => handleInputChange('dept', e.target.value)}
           />
         </label>
@@ -49,7 +42,7 @@ function Modification({ personalInfo }) {
           School Name:
           <input
             type="text"
-            value={formData.schoolName}
+            value={personalInfo.schoolName}
             onChange={(e) => handleInputChange('schoolName', e.target.value)}
           />
         </label>
@@ -57,13 +50,13 @@ function Modification({ personalInfo }) {
           College Degree:
           <input
             type="text"
-            value={formData.collegeDegree}
+            value={personalInfo.collegeDegree}
             onChange={(e) => handleInputChange('collegeDegree', e.target.value)}
           />
         </label>
       </form>
       <div>
-        <button onClick={handleClear}>Clear</button>
+        <button type="button" onClick={handleClear}>Clear</button>
       </div>
     </div>
   )

@@ -20,7 +20,19 @@ function App() {
 
   const tabs = ['Home', 'About Me', 'Modification']
 
-  
+  const onInputChange = (field, value) => {
+    setPersonalInfo(prev => ({ ...prev, [field]: value }));
+  };
+
+  const clearData = () => {
+    setPersonalInfo({
+      name: '',
+      age: '',
+      dept: '',
+      schoolName: '',
+      collegeDegree: ''
+    });
+  };
 
   const components = {
     'Home': Home,
@@ -31,9 +43,11 @@ function App() {
   const renderContent = () => {
     const Component = components[activeTab]
     if (Component) {
-    
+      if (activeTab === 'Modification') {
+        return <Component personalInfo={personalInfo} onInputChange={onInputChange} clearData={clearData} />
+      } else {
         return <Component personalInfo={personalInfo} />
-      
+      }
     }
 
     return null

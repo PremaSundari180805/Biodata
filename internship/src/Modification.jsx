@@ -2,7 +2,7 @@ import './App.css'
 
 function Modification({ personalInfo, onInputChange, clearData }) {
   const handleInputChange = (field, value) => {
-    // call parent updater so App's state updates and flows to other tabs
+   
     if (typeof onInputChange === 'function') onInputChange(field, value)
   }
 

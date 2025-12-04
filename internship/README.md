@@ -1,9 +1,13 @@
+Here is a simple and clean version:
+
 I completed the following tasks:
 
-  1.Navigation from one tab to another.   2.Added the picture in the About Me page.  3.Static data is now visible in the Modification and Home tabs.
+1. Added navigation between tabs.
+2. Added a picture to the About Me page.
+3. Made static data visible in both the Modification and Home tabs.
+4. Updated the Modification tab so changes also show on the Home page.
 
-Additional Changes:
+Additional changes:
 
-  1.Clear the form data in the Modification tab only.  2.Changed the picture shape from a square to an oval.
-
-
+1. Cleared only the form data in the Modification tab.
+2. Changed the picture shape from square to oval.
